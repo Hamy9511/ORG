@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header/Header.js';
+console.log(Header)
 
 function App() {
   return (
@@ -7,7 +9,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Hola Mundo con React
         </p>
         <a
           className="App-link"
@@ -15,7 +17,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Aprende React
         </a>
       </header>
     </div>
