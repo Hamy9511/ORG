@@ -13,7 +13,7 @@ const Listaopciones = (props) => {
         <label>Equipos</label>
         <select value={props.valor} onChange={manejarCambio}>
         <option value="" disabled defaultValue="" hidden>Seleccionar Equipo</option>
-        {props.equipos.map((equipo,index) =>{ //{equipos.map((equipo,index) => <option key={index}>{equipo}</option> )}
+        {props.y.map((equipo,index) =>{ //{equipos.map((equipo,index) => <option key={index}>{equipo}</option> )}
         return <option key={index} value={equipo} >{equipo}</option> 
         })} 
         </select>

@@ -1,4 +1,5 @@
 import "./equipo.css";
+import Colaborador from "../colaborador/colaborador.js";
 
 const Equipo = (props) => {
     //Destructiracion
@@ -13,7 +14,11 @@ const Equipo = (props) => {
 
     return <section className="equipo" style={fondo}> 
         <h3 style={estiloTitulo}>{titulo}</h3>
-        <div className ="colaboradores"></div>
+        <div className ="colaboradores">
+            <Colaborador/>
+            
+        </div>
+            
     </section>
 }
 

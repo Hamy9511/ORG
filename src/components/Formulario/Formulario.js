@@ -48,7 +48,7 @@ const Formulario = (props) => {
             <Listaopciones 
             valor={equipo} 
             actualizarEquipo={actualizarEquipo}
-            equipos={props.equipos}/>
+            y={props.x}/>
             <Boton>
                 Crear
             </Boton>
