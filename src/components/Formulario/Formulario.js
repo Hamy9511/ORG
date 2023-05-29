@@ -10,6 +10,8 @@ const Formulario = (props) => {
     const [foto,actualizarFoto] = useState("");
     const [equipo,actualizarEquipo] = useState("");
 
+    const {registrarColaborador}  = props;
+
     const manejarEnvio = (e) =>{
         e.preventDefault();
         let datosAEnviar ={
@@ -18,7 +20,7 @@ const Formulario = (props) => {
             foto,
             equipo
         }
-        console.log(datosAEnviar)
+        registrarColaborador(datosAEnviar);
     }
     return <section className = "formulario">
         <form onSubmit={manejarEnvio}>
@@ -48,7 +50,7 @@ const Formulario = (props) => {
             <Listaopciones 
             valor={equipo} 
             actualizarEquipo={actualizarEquipo}
-            y={props.x}/>
+            y={props.equipos}/>
             <Boton>
                 Crear
             </Boton>

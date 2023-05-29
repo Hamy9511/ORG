@@ -8,13 +8,18 @@ import Equipo from './components/Equipo/equipo.js';
 
 function App() {
 
-  const [mostrarFormulario,actualizarFormulario] = useState(false)
-
-  //Ternario --> condicion ? seMuestra : noSeMuestra 
-  //{mostrarFormulario && <Formulario/>}
+  const [mostrarFormulario,actualizarFormulario] = useState(false);
+  const [colaboradores, actualizarColaboradores] = useState([]); //deja explicito que es un arrreglo en el state
 
   const cambiarMostrar = () => {
     actualizarFormulario(!mostrarFormulario)
+  }
+
+  //registrar Colaborador
+
+  const registrarColaborador = (colaborador) => {
+    //spread operator
+    actualizarColaboradores([...colaboradores,colaborador]) //Duplica los valores ...
   }
 
   //Lista de equipos
@@ -58,11 +63,20 @@ function App() {
   return (
     <div>
       <Header/>
-      {mostrarFormulario === true ? <Formulario equipos={equipos.map((equipo) => equipo.titulo)}/> : <div></div>}
+      {
+      mostrarFormulario === true ? <Formulario  //Ternario --> condicion ? seMuestra : noSeMuestra  //{mostrarFormulario && <Formulario/>}
+      equipos={equipos.map((equipo) => equipo.titulo)} 
+      registrarColaborador={registrarColaborador}/> : <div></div>
+      }
       <MiOrg cambiarMostrar={cambiarMostrar}/>
       
       {
-        equipos.map((x) => <Equipo datos={x} key={x.titulo}/>) //al trabajr con map siempre trabajr con key
+        equipos.map((x) => 
+        <Equipo 
+        datos={x} 
+        key={x.titulo}
+        colaboradores={colaboradores}
+        />) //al trabajr con map siempre trabajr con key
       }
 
     </div>
