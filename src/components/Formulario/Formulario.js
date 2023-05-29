@@ -3,7 +3,7 @@ import "./Formulario.css";
 import CampoTexto from "../CampoTexto/Campotexto.js";
 import Listaopciones from "../ListaOpciones/index.js";
 import Boton from "../boton/boton.js";
-const Formulario = () => {
+const Formulario = (props) => {
 
     const [nombre,actualizarNombre] = useState("");
     const [puesto,actualizarPuesto] = useState("");
@@ -47,7 +47,8 @@ const Formulario = () => {
             />
             <Listaopciones 
             valor={equipo} 
-            actualizarEquipo={actualizarEquipo}/>
+            actualizarEquipo={actualizarEquipo}
+            equipos={props.equipos}/>
             <Boton>
                 Crear
             </Boton>
