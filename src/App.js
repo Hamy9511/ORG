@@ -75,7 +75,9 @@ function App() {
         <Equipo 
         datos={x} 
         key={x.titulo}
-        colaboradores={colaboradores}
+        colaboradores=
+        {colaboradores.filter(colaborador => 
+        colaborador.equipo /* Este equipo viene del componente colaborador*/ === x.titulo)}
         />) //al trabajr con map siempre trabajr con key
       }
 
