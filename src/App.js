@@ -4,6 +4,7 @@ import Header from './components/Header/Header.js';
 import Formulario from './components/Formulario/Formulario.js';
 import MiOrg from './components/MiOrg/MiOrg.js';
 import Equipo from './components/Equipo/equipo.js';
+import Footer from './components/footer/footer';
 
 
 function App() {
@@ -43,21 +44,21 @@ function App() {
     {
       titulo: "DevOps",
       colorSecundario: "#FDE7E8",
-      ColorPrimario: "E06B69"
+      colorPrimario: "#E06B69"
     },
     {
       titulo: "Ux y Diseño",
       colorSecundario: "#FAE9F5",
-      ColorPrimario: "#DB6EBF"
+      colorPrimario: "#DB6EBF"
     }, {
       titulo: "Movil",
       colorSecundario: "#FFF5D9",
-      ColorPrimario: "#FFBA05"
+      colorPrimario: "#FFBA05"
     }, 
     {
       titulo: "Innovación y Gestión",
       colorSecundario:  "#FFEEDF",
-      ColorPrimario: "#FF8A29"
+      colorPrimario: "#FF8A29"
     },
 ]
   return (
@@ -80,6 +81,7 @@ function App() {
         colaborador.equipo /* Este equipo viene del componente colaborador*/ === x.titulo)}
         />) //al trabajr con map siempre trabajr con key
       }
+        <Footer/>
 
     </div>
   );
