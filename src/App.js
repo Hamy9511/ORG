@@ -10,7 +10,36 @@ import Footer from './components/footer/footer';
 function App() {
 
   const [mostrarFormulario,actualizarFormulario] = useState(false);
-  const [colaboradores, actualizarColaboradores] = useState([]); //deja explicito que es un arrreglo en el state
+  const [colaboradores, actualizarColaboradores] = useState([{
+    equipo: "Front-End",
+    foto: "https://github.com/harlandlohora.png",
+    nombre: "Harland Lohora",
+    puesto: "Instructor"
+  },
+  {
+    equipo: "Programación",
+    foto: "https://github.com/genesysaluralatam.png",
+    nombre: "Genesys Rondón",
+    puesto: "Desarrolladora de software e instructora"
+  },
+  {
+    equipo: "Ux y Diseño",
+    foto: "https://github.com/JeanmarieAluraLatam.png",
+    nombre: "Jeanmarie Quijada",
+    puesto: "Instructora en Alura Latam"
+  },
+  {
+    equipo: "Programación",
+    foto: "https://github.com/christianpva.png",
+    nombre: "Christian Velasco",
+    puesto: "Head de Alura e Instructor"
+  },
+  {
+    equipo: "Innovación y Gestión",
+    foto: "https://github.com/JoseDarioGonzalezCha.png",
+    nombre: "Jose Gonzalez",
+    puesto: "Dev FullStack"
+  }]); //deja explicito que es un arrreglo en el state
 
   const cambiarMostrar = () => {
     actualizarFormulario(!mostrarFormulario)
@@ -21,6 +50,11 @@ function App() {
   const registrarColaborador = (colaborador) => {
     //spread operator
     actualizarColaboradores([...colaboradores,colaborador]) //Duplica los valores ...
+  }
+
+  //Elimnar Colaborador
+  const eliminarColaborador = () => {
+    console.log("Eliminar Colaborador");
   }
 
   //Lista de equipos
@@ -72,14 +106,18 @@ function App() {
       <MiOrg cambiarMostrar={cambiarMostrar}/>
       
       {
-        equipos.map((x) => 
+        equipos.map
+        (
+          (x) => 
         <Equipo 
         datos={x} 
         key={x.titulo}
         colaboradores=
         {colaboradores.filter(colaborador => 
         colaborador.equipo /* Este equipo viene del componente colaborador*/ === x.titulo)}
-        />) //al trabajr con map siempre trabajr con key
+        eliminarColaborador={eliminarColaborador}
+        />
+        ) //al trabajr con map siempre trabajr con key
       }
         <Footer/>
 
