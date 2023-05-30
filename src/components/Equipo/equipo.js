@@ -1,21 +1,22 @@
 import "./equipo.css";
 import Colaborador from "../colaborador/colaborador.js";
+import hexToRgba from 'hex-to-rgba';
 
 const Equipo = (props) => {
     //Destructiracion
-    const {titulo, colorPrimario, colorSecundario} =  props.datos; //abreviar codigo --> const colorPrimario = props.datos.colorPrimario
+    const {titulo, colorPrimario} =  props.datos; //abreviar codigo --> const colorPrimario = props.datos.colorPrimario
         //Si trabajas con estilos como este los guiones no existen y tiene que iniciar la segunda palabra con mayuscula
-    const {colaboradores, eliminarColaborador} = props;
+    const {colaboradores, eliminarColaborador, actualizarColor} = props;
     const fondo = {
-        backgroundColor: colorSecundario
+        backgroundColor: hexToRgba(colorPrimario,0.5)
     }
 
     const estiloTitulo = {borderColor: colorPrimario}
 
     return <> {colaboradores.length > 0 &&
         <section className="equipo" style={fondo}> 
-        <input type="color" value={colorSecundario} onChange={(event) =>{
-            console.log(event.target.value)
+        <input type="color" value={colorPrimario} onChange={(event) =>{
+            actualizarColor(event.target.value,titulo)
         }}>
         </input>
         <h3 style={estiloTitulo}>{titulo}</h3>

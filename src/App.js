@@ -40,25 +40,7 @@ function App() {
     nombre: "Jose Gonzalez",
     puesto: "Dev FullStack"
   }]); //deja explicito que es un arrreglo en el state
-
-  const cambiarMostrar = () => {
-    actualizarFormulario(!mostrarFormulario)
-  }
-
-  //registrar Colaborador
-
-  const registrarColaborador = (colaborador) => {
-    //spread operator
-    actualizarColaboradores([...colaboradores,colaborador]) //Duplica los valores ...
-  }
-
-  //Elimnar Colaborador
-  const eliminarColaborador = () => {
-    console.log("Eliminar Colaborador");
-  }
-
-  //Lista de equipos
-  const equipos = [
+  const [equipos,actualizarEquipos] = useState([
     
     {
       titulo:  "Programación",
@@ -94,7 +76,38 @@ function App() {
       colorSecundario:  "#FFEEDF",
       colorPrimario: "#FF8A29"
     },
-]
+]);
+
+
+  const cambiarMostrar = () => {
+    actualizarFormulario(!mostrarFormulario)
+  }
+
+  //registrar Colaborador
+
+  const registrarColaborador = (colaborador) => {
+    //spread operator
+    actualizarColaboradores([...colaboradores,colaborador]) //Duplica los valores ...
+  }
+
+  //color Equipo
+  const actualizarColor = (color,titulo) => {
+    console.log("actualizar color",color, titulo);
+    const equiposActualizados = equipos.map((equipo) => {
+      if(equipo.titulo === titulo){
+        equipo.colorPrimario = color;
+      }
+      return equipo;
+    })
+    actualizarEquipos(equiposActualizados);
+  }
+
+  //Elimnar Colaborador
+  const eliminarColaborador = () => {
+    console.log("Eliminar Colaborador");
+  }
+
+
   return (
     <div>
       <Header/>
@@ -116,6 +129,7 @@ function App() {
         {colaboradores.filter(colaborador => 
         colaborador.equipo /* Este equipo viene del componente colaborador*/ === x.titulo)}
         eliminarColaborador={eliminarColaborador}
+        actualizarColor={actualizarColor}
         />
         ) //al trabajr con map siempre trabajr con key
       }
