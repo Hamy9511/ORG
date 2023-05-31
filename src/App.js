@@ -118,8 +118,10 @@ function App() {
   }
 
   //Elimnar Colaborador
-  const eliminarColaborador = () => {
-    console.log("Eliminar Colaborador");
+  const eliminarColaborador = (id) => {
+    console.log("Eliminar Colaborador",id);
+    const nuevosColaboradores = colaboradores.filter((colaborador) => colaborador.id !== id);
+    actualizarColaboradores(nuevosColaboradores);
   }
 
 
