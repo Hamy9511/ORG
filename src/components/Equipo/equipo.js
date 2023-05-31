@@ -4,7 +4,7 @@ import hexToRgba from 'hex-to-rgba';
 
 const Equipo = (props) => {
     //Destructiracion
-    const {titulo, colorPrimario} =  props.datos; //abreviar codigo --> const colorPrimario = props.datos.colorPrimario
+    const {titulo, colorPrimario, id} =  props.datos; //abreviar codigo --> const colorPrimario = props.datos.colorPrimario
         //Si trabajas con estilos como este los guiones no existen y tiene que iniciar la segunda palabra con mayuscula
     const {colaboradores, eliminarColaborador, actualizarColor} = props;
     const fondo = {
@@ -16,7 +16,7 @@ const Equipo = (props) => {
     return <> {colaboradores.length > 0 &&
         <section className="equipo" style={fondo}> 
         <input type="color" value={colorPrimario} onChange={(event) =>{
-            actualizarColor(event.target.value,titulo)
+            actualizarColor(event.target.value,id)
         }}>
         </input>
         <h3 style={estiloTitulo}>{titulo}</h3>
