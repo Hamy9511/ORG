@@ -124,6 +124,11 @@ function App() {
     actualizarColaboradores(nuevosColaboradores);
   }
 
+  //Crear Equipo
+  const crearEquipo =(nuevoEquipo) => {
+    console.log(crearEquipo);
+    actualizarEquipos([...equipos, {...nuevoEquipo, id : uuidv4()}])
+  }
 
   return (
     <div>
@@ -131,7 +136,9 @@ function App() {
       {
       mostrarFormulario === true ? <Formulario  //Ternario --> condicion ? seMuestra : noSeMuestra  //{mostrarFormulario && <Formulario/>}
       equipos={equipos.map((equipo) => equipo.titulo)} 
-      registrarColaborador={registrarColaborador}/> : <div></div>
+      registrarColaborador={registrarColaborador}
+      crearEquipo={crearEquipo}
+      /> : <div></div>
       }
       <MiOrg cambiarMostrar={cambiarMostrar}/>
       
@@ -147,6 +154,7 @@ function App() {
         colaborador.equipo /* Este equipo viene del componente colaborador*/ === x.titulo)}
         eliminarColaborador={eliminarColaborador}
         actualizarColor={actualizarColor}
+        crearEquipo ={crearEquipo}
         />
         ) //al trabajr con map siempre trabajr con key
       }
