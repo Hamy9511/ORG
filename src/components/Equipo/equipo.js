@@ -6,7 +6,7 @@ const Equipo = (props) => {
     //Destructiracion
     const {titulo, colorPrimario, id} =  props.datos; //abreviar codigo --> const colorPrimario = props.datos.colorPrimario
         //Si trabajas con estilos como este los guiones no existen y tiene que iniciar la segunda palabra con mayuscula
-    const {colaboradores, eliminarColaborador, actualizarColor} = props;
+    const {colaboradores, eliminarColaborador, actualizarColor, like} = props;
     const fondo = {
         backgroundColor: hexToRgba(colorPrimario,0.5)
     }
@@ -27,7 +27,8 @@ const Equipo = (props) => {
                 datos={colaborador} 
                 key={index} 
                 colorPrimario={colorPrimario}
-                eliminarColaborador={eliminarColaborador}/>)
+                eliminarColaborador={eliminarColaborador}
+                like={like}/>)
             }
             
         </div>

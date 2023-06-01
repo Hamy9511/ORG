@@ -8,43 +8,49 @@ import Equipo from './components/Equipo/equipo.js';
 import Footer from './components/footer/footer';
 
 
+
 function App() {
 
-  const [mostrarFormulario,actualizarFormulario] = useState(false);
+  const [mostrarFormulario,actualizarFormulario] = useState(true);
   const [colaboradores, actualizarColaboradores] = useState([{
     id: uuidv4(),
     equipo: "Front-End",
     foto: "https://github.com/harlandlohora.png",
     nombre: "Harland Lohora",
-    puesto: "Instructor"
+    puesto: "Instructor",
+    fav: true
   },
   {
     id: uuidv4(),
     equipo: "Programación",
     foto: "https://github.com/genesysaluralatam.png",
     nombre: "Genesys Rondón",
-    puesto: "Desarrolladora de software e instructora"
+    puesto: "Desarrolladora de software e instructora",
+    fav: true
   },
   {
     id: uuidv4(),
     equipo: "Ux y Diseño",
     foto: "https://github.com/JeanmarieAluraLatam.png",
     nombre: "Jeanmarie Quijada",
-    puesto: "Instructora en Alura Latam"
+    puesto: "Instructora en Alura Latam",
+    fav: true
   },
   {
     id: uuidv4(),
     equipo: "Programación",
     foto: "https://github.com/christianpva.png",
     nombre: "Christian Velasco",
-    puesto: "Head de Alura e Instructor"
+    puesto: "Head de Alura e Instructor",
+    fav: true
   },
   {
     id: uuidv4(),
     equipo: "Innovación y Gestión",
     foto: "https://github.com/JoseDarioGonzalezCha.png",
     nombre: "Jose Gonzalez",
-    puesto: "Dev FullStack"
+    puesto: "Dev FullStack",
+    fav: true
   }]); //deja explicito que es un arrreglo en el state
   const [equipos,actualizarEquipos] = useState([
     
@@ -129,7 +135,18 @@ function App() {
     console.log(crearEquipo);
     actualizarEquipos([...equipos, {...nuevoEquipo, id : uuidv4()}])
   }
+  //Fucnion Like
+  const like = (id) =>{
+    const colaboradoresActualizados = colaboradores.map((colaborador)=>{
+      if(colaborador.id === id){
+        colaborador.fav = !colaborador.fav;
+      }
+      return colaborador;
+    })
 
+    actualizarColaboradores(colaboradoresActualizados);
+  }
+ 
   return (
     <div>
       <Header/>
@@ -155,6 +172,7 @@ function App() {
         eliminarColaborador={eliminarColaborador}
         actualizarColor={actualizarColor}
         crearEquipo ={crearEquipo}
+        like={like}
         />
         ) //al trabajr con map siempre trabajr con key
       }
